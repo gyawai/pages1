@@ -1,0 +1,60 @@
+body {
+    background: #ffffff;
+    margin-left: 10%;
+    width: 80%;
+}
+
+a:link {
+    color: #cc0000;
+    text-decoration-line: none;
+}
+
+a:visited {
+    color: #880000;
+}
+
+a:hover {
+    text-decoration-line: underline;
+}
+
+a:active {
+    color: #ff0000;
+}
+
+h1 {
+    font-familiy: inherit;
+}
+
+h2 {
+    padding: 0 0 0 5px;
+    margin: 0 0 12px;
+    font-size: 1.6em;
+    font-weight: 400;
+    line-height: 1.4em;
+    background: url("/assets/images/header_dragon_sub_v1.png") no-repeat scroll 134% 0 #ddd;
+    border: 2px none #ccc;
+}
+
+pre {
+    font-family: monospace, monospace;
+    background-color: white;
+    margin-left: 20px;
+    margin-right: 50px;
+
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    overflow: auto;
+
+    unicode-bidi: isolate;
+    white-space: pre;
+}
