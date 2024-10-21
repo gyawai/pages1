@@ -58,3 +58,21 @@ pre {
     unicode-bidi: isolate;
     white-space: pre;
 }
+
+table:not(.plain-table) {
+    border-collapse: collapse;
+    thead > tr {
+        border-bottom: 3px solid #ccc;
+        border-top: 0px solid #ccc;
+    }
+    tr {
+        border-bottom: 3px solid #ccc;
+        border-top: 1px solid #ccc;
+    }
+    tr:nth-child(even) {
+        background-color: #e7e7e7;
+    }
+    td,th {
+        padding: 4px 8px;
+    }
+}

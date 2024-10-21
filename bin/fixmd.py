@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import sys, re
+import sys, os, re
 import argparse
 
 def parse_argument():
@@ -20,9 +20,11 @@ def read_lines(fname):
     f.close()
     return lines
 
-def fix_line(line, next_line):
+def fix_line(line, next_line, infilename):
     line = line.rstrip()
     line = fix_anchor(line)
+    line = fix_assets_url(line, infilename)
+    line = fix_div(line)
     res = fix_image(line, next_line.rstrip())
     line = res[1]
     if res[0] == 2:
@@ -39,6 +41,25 @@ def fix_anchor(line):
         line = m.group(1)
     line = line + f' {{{anchor}}}'
     return line
+
+def fix_assets_url(line, infilename):
+    m = re.search(r'(.*)\!\[\]\(https://groups.oist.jp/sites/default/files/imce/u656/(.+?)\)(.*)', line)
+    if not m: return line
+    preamble = m.group(1)
+    filename = m.group(2)
+    postamble = m.group(3)
+    basename = os.path.splitext(os.path.basename(infilename))[0]
+    url = f'assets/images/{basename}/'
+    line1 = f'{preamble}![]({url}{filename}){postamble}'
+
+    return line1
+
+def fix_div(line):
+    line1 = re.sub(r'<div>', '', line)
+    line1 = re.sub(r'</div>', '', line1)
+
+    return line1
+
 
 #
 # xxx ![](/url/of/the/image.png){width="128" height="64"}
@@ -71,16 +92,23 @@ def fix_image(line, next_line):
     html = f'<img src="{url}" {w} {h} />'
     return (2, html, remnant)
 
+
+def add_front_matter():
+    fm = '''---
+layout: default-md
+title: Getting Started
+---
+
+'''
+    print(fm, file=sys.stdout)
+
 def main(args=None):
     if args is None:
         args = parse_argument()
     lines = read_lines(args.infile)
-    '''
-    for line in lines:
-        line1 = fix_line(line)
-        print(line1, file=sys.stdout)
-    '''
 
+    add_front_matter()
+    
     i = 0
     while i < len(lines):
         line0 = lines[i]
@@ -88,7 +116,7 @@ def main(args=None):
             line1 = lines[i+1]
         else:
             line1 = ''
-        line_fixed, next_line = fix_line(line0, line1)
+        line_fixed, next_line = fix_line(line0, line1, args.infile)
         if i < len(lines) - 1:
             lines[i+1] = next_line
         print(line_fixed, file=sys.stdout)

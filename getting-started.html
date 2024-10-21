@@ -2,11 +2,8 @@
 layout: default-md
 title: Getting Started
 ---
-
-
 # Getting started
 
-::: {.field .field-name-body .field-type-text-with-summary .field-label-hidden}
 ## Introduction {#high-performance-computing-at-oist}
 
 The *Scientific Computing and Data Analysis* section (SCDA) provides
@@ -31,7 +28,7 @@ software; and various services.
 
 
 
-## []{#quick}Quick Start and General Information {#quick-start---general-info}
+## Quick Start and General Information {#quick}
 
 You do not need to apply for access to storage as a remote folder.
 
@@ -52,7 +49,7 @@ You do not need to apply for access to storage as a remote folder.
 The rest of this Start Here document will be all about getting started
 with the computing and storage resources at OIST. Read on!
 
-### []{#documentation}Documentation and Help
+### Documentation and Help {#documentation}
 
 **Our documentation** is all [on our Documentation
 page](https://groups.oist.jp/scs/documentation). This guide gives you
@@ -75,7 +72,7 @@ portal page** to everything related to HPC. Here you can see how busy
 the clusters are, what systems you have access to, how much storage you
 are suing and much more.
 
-### []{#access}Get Access
+### Get Access {#access}
 
 To get access to the clusters, you need to apply. We have two kinds of
 computing resources: *open resources* that everybody at OIST can get
@@ -101,15 +98,15 @@ Hours](https://groups.oist.jp/scs/open-hours) where we can talk about it
 with you, and tell you about any specific things to keep in mind when
 using the resource.
 
-## []{#resources}Our Resources
+## Our Resources {#resources}
 
-### []{#background}Background info: Clusters
+### Background info: Clusters {#background}
 
 Here a bit of background information on clusters and schedulers. If you
 are already familiar with this, feel free to skip to the next section.
 
-![](https://groups.oist.jp/sites/default/files/imce/u656/clusterdraw2.png){height="354"
-width="550"}
+<img src="assets/images/getting-started/clusterdraw2.png" width="550" height="354" />
+
 
 -   A cluster is a large, powerful computer system made up of many
     individual computers (called \"nodes\"), connected together in a
@@ -118,7 +115,7 @@ width="550"}
 -   Each node is a computer with it\'s own CPU, memory, local storage
     and a network interface.
 
--   There is also some form of fast storage systems (called \"flash\" 
+-   There is also some form of fast storage systems (called \"flash\"
     and \"bucket\" here) connected to the network.
 
 -   The cluster is controlled by software called a *scheduler.* The
@@ -136,10 +133,10 @@ You don\'t run programs on the cluster directly. You ask the scheduler
 for the resources you need --- the number of CPU cores, the amount of
 memory and the running time --- and tell it what to run. This is called
 running a \"job\". We will discuss the details further down.\
- 
 
-![](https://groups.oist.jp/sites/default/files/imce/u656/slurmwork.png){height="414"
-width="550"}
+
+<img src="assets/images/getting-started/slurmwork.png" width="550" height="414" />
+
 
 This is roughly what happens when you want to run something on a
 cluster.
@@ -171,9 +168,9 @@ cluster.
 4.  Once your application is done, Slurm will stop the job, make sure
     any output is saved, optionally email you, then assign the newly
     freed resources to another job waiting in line.\
-     
 
-### []{#clusters}Our Clusters
+
+### Our Clusters {#clusters}
 
 We have two production clusters at OIST:
 
@@ -185,15 +182,15 @@ a lot of memory.
 specialized nodes for things such as GPU-accelerated computing. It is
 often used for tasks such as deep learning and image analysis.
 
-### []{#storage}Storage
+### Storage {#storage}
 
 You have three kinds of storage available on each cluster. They are used
 in different ways and for different things. Our storage system overview
 is available [on this
 page](https://groups.oist.jp/scs/research-storage).
 
-**![](https://groups.oist.jp/sites/default/files/imce/u656/st-bucket-7-200.png){height="101"
-style="margin-right:20px; float:left" width="90"}Bucket** is our main
+<img src="assets/images/getting-started/st-bucket-7-200.png" width="90" height="101" />
+Bucket** is our main
 research storage. It has a large storage capacity and is backed up
 offsite on a weekly basis. Use this to store all your research data,
 your code and anything else you need to keep. Your unit has a directory
@@ -204,8 +201,8 @@ write to it from the login nodes, from the \"datacp\" partition, and
 mounted as a remote folder on your desktop. It is read-only on the
 compute nodes (writing from them would slow it down too much).
 
-**![](https://groups.oist.jp/sites/default/files/imce/u656/st-home-8-200.png){height="61"
-style="margin-right:20px; float:left" width="70"}home** is your personal
+<img src="assets/images/getting-started/st-home-8-200.png" width="70" height="61" />
+home** is your personal
 storage space. It is small (50GB) and slow. Use this storage for
 personal files and documents, for source code, plots and similar. Do not
 use this to store any research data and do not run jobs from here - the
@@ -215,8 +212,8 @@ Your directory is in /home/X/your-username where \"your-username\" is
 your OIST user name, and \"X\" is the first letter. If your name is
 jan-moren, your directory would be at /home/j/jan-moren.
 
-**![](https://groups.oist.jp/sites/default/files/imce/u656/ssd-storage.png){height="95"
-style="margin-right:20px; float:left" width="90"}Flash** is the
+<img src="assets/images/getting-started/ssd-storage.png" width="90" height="95" />
+Flash** is the
 temporary storage system for Deigo, and **work** is the temporary
 storage for Saion. They are available as \"/flash\" and \"/work\",
 respectively.
@@ -253,9 +250,9 @@ This will copy \"my_results.dat\" to bucket from flash. For more
 information and examples, see the [Deigo
 page](https://groups.oist.jp/scs/deigo).
 
-## []{#Using_clusters}Using the Clusters
+## Using the Clusters {#Using_clusters}
 
-### []{#login}Log in
+### Log in {#login}
 
 You log in to the login nodes from a terminal with \"ssh\". For Windows
 we recommend [MobaXTerm](https://mobaxterm.mobatek.net/). On Linux or
@@ -279,7 +276,7 @@ introduction](https://groups.oist.jp/scs/intro-bash) page. If you\'re
 feeling adventurous, we also have [more advanced
 information](https://groups.oist.jp/scs/advanced-bash).
 
-### []{#modules}Software Modules
+### Software Modules {#modules}
 
 We have a collection of software packages installed on the clusters.
 They range from general languages and tools such as Python, Julia or
@@ -315,7 +312,7 @@ See our page on using modules [\"use the Module
 system\"](https://groups.oist.jp/scs/use-module-system) for more
 information, including how to create your own modules.
 
-### []{#jobs}Submitting Jobs
+### Submitting Jobs {#jobs}
 
 We use Slurm as our cluster scheduler. Our full documentation for using
 Slurm is available in [Using Slurm to run your
@@ -324,7 +321,7 @@ programs](https://groups.oist.jp/scs/use-slurm).
 You interact with Slurm using the command line. You can run programs in
 two ways: interactively, or as *batch* jobs.
 
-#### []{#interactive}Interactive jobs
+#### Interactive jobs {#interactive}
 
 With an interactive job can use an application directly on a compute
 node as if you were sitting on your local computer. Langusages such as
@@ -349,10 +346,10 @@ type the \'\$\']{.math .inline} itself). The rest is output:
        _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
       | | | | | | |/ _` |  |
       | | |_| | | | (_| |  |  Version 1.3.1 (2019-12-30)
-     _/ |\__'_|_|_|\__'_|  |  
+     _/ |\__'_|_|_|\__'_|  |
     |__/                   |
 
-    julia> 
+    julia>
 
 We first load julia version 1.3.1. We then ask for the \"short\"
 partition with the \"-p\" option; 2 hours with \"-t\"; 32GB memory with
@@ -368,14 +365,14 @@ for instance), start the \"bash\" application:
 
     $ srun -p short -t 0-4 -c 4 --mem=8G --pty bash
     jan-moren@deigo011113: (15:25)
-    ~$ 
+    ~$
 
 \"-t 0-4\" is another way of specifying time; this is 0 days and 4
 hours. And \"bash\" is the application providing a command line on
 Linux. Now we can use this node as our own Linux computer for the next 4
 hours.
 
-#### []{#batch}Batch Jobs
+#### Batch Jobs {#batch}
 
 Interactive jobs are fine for short computations and interactive use.
 But they have a large drawback: they only run while you\'re actually
@@ -433,7 +430,7 @@ command:
 Use arrow keys to navigate back and forth in the file, \"/\" to search,
 and \"q\" to quit.
 
-#### []{#jobmanage}Manage your jobs
+#### Manage your jobs {#jobmanage}
 
 There are a few useful commands to examine and manage your submitted
 jobs.
@@ -441,8 +438,8 @@ jobs.
 **\"squeue\"** will show the state of your jobs:
 
     $ squeue
-                 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
-                   166     short    sleep jan-more  R       0:16      1 deigo010923 
+                 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                   166     short    sleep jan-more  R       0:16      1 deigo010923
 
 It will list the job ID, the partition, the name of the job (the name of
 the application you run by default), your user name and the state. The
@@ -470,157 +467,3 @@ cancel all your jobs with \"-u \"; cancel all your pending jobs with
 
 Optionally you can ask Slurm to email you when it\'s done - see the
 [Slurm documentation](https://groups.oist.jp/scs/use-slurm) for more.
-:::
-:::
-
-::: section
--   [Core Facilities Top](/core-facilities){target=""}
--   [SCDA Top](/scs){target=""}
--   [Equipment
-    Gallery](https://groups.oist.jp/scs/equipment-gallery "Equipment gallery"){target=""}[]{.glyphicon
-    .glyphicon-chevron-down .dropdown-toggle toggle="dropdown"}
-    -   [Computing](/scs/equipmentgallerycomputing){target=""}
-    -   [Storage](/scs/storage-systems){target=""}
-    -   [Training](/scs/training-systems){target=""}
--   [Support
-    Services](https://groups.oist.jp/scs/support-services "Support services"){target=""}[]{.glyphicon
-    .glyphicon-chevron-down .dropdown-toggle toggle="dropdown"}
-    -   [RSD Policy on Attribution in Scientific
-        Publications](https://groups.oist.jp/rsd/rsd-attribution-policy "Our policy for when and how to give RSD sections credit for work done on your behalf."){target=""}
-    -   [Documentation](https://groups.oist.jp/scs/documentation){target=""}
-    -   [Computing
-        resources](https://groups.oist.jp/scs/computing-resources){target=""}
-    -   [Systems
-        status](https://groups.oist.jp/scs/systems-status){target=""}
-    -   [Registration &
-        Forms](https://groups.oist.jp/scs/request-access " "){target=""}
--   [Links](https://groups.oist.jp/scs/links){target=""}
--   [Getting
-    started](https://groups.oist.jp/scs/getting-started){target=""}
--   [Documentation](https://groups.oist.jp/scs/documentation){target=""}
--   [Rules and
-    Guidelines](https://groups.oist.jp/scs/support-services "Rules and guidelines for our services"){target=""}
--   [Registration &
-    Forms](https://groups.oist.jp/scs/request-access){target=""}
--   [Systems
-    status](https://groups.oist.jp/scs/systems-status){target=""}
--   [Research
-    Publications](https://groups.oist.jp/scs/publications "Publications with contribution from SCDA"){target=""}
--   [Peer
-    Review](https://groups.oist.jp/scs/peer-review-results "Peer review of the SCDA section"){target=""}
-:::
-
-::: section
-### Contact Scientific Computing Section
-
-Email: <ask-scda@oist.jp>\
-Phone: 12047\
-\
-Visit us: [Daily Open Hours](https://groups.oist.jp/scs/open-hours)
-:::
-
-</div>
-
-</div>
-:::
-:::
-:::
-
-::: {#footer-primary}
-<div>
-
-::: address
-Okinawa Institute of Science and Technology Graduate University\
-1919-1 Tancha, Onna-son, Kunigami-gun\
-Okinawa, Japan 904-0495\
-[How to Contact OIST](https://www.oist.jp/contact-us)
-:::
-
-::: menu
--   [Home](https://www.oist.jp/)
--   [About](https://www.oist.jp/about)
--   [Graduate School](/grad)
--   [Research](https://www.oist.jp/research-overview)
--   [Community](https://www.oist.jp/community-activities)
--   [Events](https://groups.oist.jp/upcoming)
--   [News Center](https://www.oist.jp/news-center)
--   [Careers](https://www.oist.jp/careers)
-:::
-
-</div>
-:::
-
-::: {#footer-secondary-wrapper}
-::: {#footer-secondary}
-<div>
-
-::: copyright
-Copyright © 2024 Okinawa Institute of Science and Technology Graduate
-University
-:::
-
-::: legal
--   [TIDA](https://tida.oist.jp/)
--   [Privacy Policy](/acd/privacy-policy)
--   [Sitemap](https://www.oist.jp/sitemap)
-:::
-
-</div>
-:::
-:::
-
-::: {#cboxOverlay style="display: none;"}
-:::
-
-::: {#colorbox role="dialog" tabindex="-1" style="display: none;"}
-::: {#cboxWrapper}
-<div>
-
-::: {#cboxTopLeft style="float: left;"}
-:::
-
-::: {#cboxTopCenter style="float: left;"}
-:::
-
-::: {#cboxTopRight style="float: left;"}
-:::
-
-</div>
-
-::: {style="clear: left;"}
-::: {#cboxMiddleLeft style="float: left;"}
-:::
-
-::: {#cboxContent style="float: left;"}
-::: {#cboxTitle style="float: left;"}
-:::
-
-::: {#cboxCurrent style="float: left;"}
-:::
-
-::: {#cboxLoadingOverlay style="float: left;"}
-:::
-
-::: {#cboxLoadingGraphic style="float: left;"}
-:::
-:::
-
-::: {#cboxMiddleRight style="float: left;"}
-:::
-:::
-
-::: {style="clear: left;"}
-::: {#cboxBottomLeft style="float: left;"}
-:::
-
-::: {#cboxBottomCenter style="float: left;"}
-:::
-
-::: {#cboxBottomRight style="float: left;"}
-:::
-:::
-:::
-
-::: {style="position: absolute; width: 9999px; visibility: hidden; display: none; max-width: none;"}
-:::
-:::

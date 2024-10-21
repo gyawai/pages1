@@ -6,7 +6,24 @@ title: top page
 <h1>Top Page</h1>
 
 <ul>
-  <li><a href="getting-started.html">Getting Started (original)</a></li>
-  <li><a href="getting-started1.html">Getting Started (markdown fixed)</a></li>
+  <li><a href="getting-started.html">Getting Started</a></li>
   <li><a href="copy-and-move-data.html">Copy &amp; Moce Data</a></li>
 </ul>
+
+
+<h3>Semi-auto procedure to port pages from groups.oist.jp/scs/ to ${gitrepo}/</h3>
+
+<ol>
+
+  <li>Change directory to ${gitrepo}</li>
+
+  <li>Convert the <basename>.md to ${gitrepo}/<basename>.html using a script named 'fixmd.py' <br/>
+  e.g.  ./bin/fixmd.py -i ../org_docs/getting-started/getting-started.md > ./getting-started.html</li>
+
+  <li>Copy image files to ${gitrepo}/assets/images/<basename>/</li>
+  e.g. cp ../org_docs/getting-started/*.png ./assets/images/getting-started/
+
+  <li>Remove the first part (~90 lines) and the last part (~160 lines) by hand.</li>
+
+  <li><tt>make dev</tt> to locally view the page at <tt>http://127.0.0.1:4000/</tt> </li>
+</ol>
