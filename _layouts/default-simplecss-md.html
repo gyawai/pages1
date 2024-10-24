@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/styles.css">
+    {% feed_meta %}
+    {% seo %}
+  </head>
+  <body>
+    {% include page-top.html %}
+    {{ content | markdownify }}
+    {% include page-bottom.html %}
+  </body>
+</html>
