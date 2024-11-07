@@ -3,8 +3,6 @@ layout: default-simplecss-md
 title: Transfer Data
 ---
 
-This text is in copy-and-move-data-simplecss.xxx
-
 # Transfer Data
 
 You can transfer data between your computer and our storage systems in
