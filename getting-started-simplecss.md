@@ -6,7 +6,7 @@ title: Getting Started
 
 ## Introduction {#high-performance-computing-at-oist}
 
-hello!
+hello! this text is in getting-started-simplecss.md
 
 The *Scientific Computing and Data Analysis* section (SCDA) provides
 several HPC systems and other computing resources for you here at OIST.
