@@ -9,7 +9,7 @@
   </head>
   <body>
     {% include page-top.html %}
-    { content }
+    {{ content | markdownify }}
     {% include page-bottom.html %}
   </body>
 </html>
